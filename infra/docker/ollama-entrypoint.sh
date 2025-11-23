@@ -19,6 +19,7 @@ if ! ollama list | grep -q "lexigrade-reviewer"; then
     ollama create lexigrade-reviewer -f /models/lexigrade-reviewer/Modelfile
 fi
 
+
 echo "All models ready."
 
 wait -n
