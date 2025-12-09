@@ -145,5 +145,5 @@ def calibrate_thresholds(texts_by_level, nlp, freqs, total_tokens):
 
 
 if __name__ == "__main__":
-    main(["english"])
+    main(["spanish"])
 

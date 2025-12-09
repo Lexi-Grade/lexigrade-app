@@ -1,13 +1,13 @@
 from config import settings
 import os
 import json
-import pandas as pd
+from datasets import load_dataset
 import spacy
 from collections import Counter
 
 
 
-def load_cefr_lexicon(language:str) -> dict:
+def load_cefr_lexicon(language:str):
     if language == 'english':
         nlp_model = "en_core_web_sm"
     else:
@@ -40,14 +40,12 @@ def load_cefr_lexicon(language:str) -> dict:
     with open(os.path.join(settings.datasets_base_path, language, f"cefr_frequencies.json"), "w", encoding="utf-8") as f:
         json.dump({"total_tokens": total_tokens, "freqs": frequencies}, f, ensure_ascii=False, indent=2)
 
-    return lexicon
-
 
 def build_texts_by_level_dataset(language: str) -> dict:
-    if language == 'spanish':
-        datasets = json.loads(settings.hf_repo_spanish_url)
+    if language == 'english':
+        universal_cefr_datasets = settings.universal_cefr_english_datasets
     else:
-        datasets = json.loads(settings.hf_repo_english_url)
+        universal_cefr_datasets = settings.universal_cefr_spanish_datasets
     text_by_level = {
         'A1': [],
         'A2': [],
@@ -56,18 +54,17 @@ def build_texts_by_level_dataset(language: str) -> dict:
         'C1': [],
         'C2': []
     }
-    print(datasets)
-    for dataset in datasets:
-        df = pd.read_json(datasets[dataset])
-        for index, row in df.iterrows():
-            level = row['cefr_level']
-            text = row['text']
-            if level in text_by_level:
-                text_by_level[level].append(text)
+    for universal_cefr_dataset in universal_cefr_datasets.split(','):
+        dataset = load_dataset(
+            universal_cefr_dataset,
+            split="train",
+        )
+        for item in dataset:
+            cefr_level = item["cefr_level"]
+            if cefr_level != 'NA':
+                cefr_level = cefr_level.replace('+','')
+                text_by_level[cefr_level].append(item["text"])
 
     return text_by_level
 
-
-# load_cefr_lexicon('english')
-
-
+load_cefr_lexicon('spanish')

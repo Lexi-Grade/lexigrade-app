@@ -1,0 +1,1 @@
+from services.nlp_tests.lexical_complexity_tests import LexicalComplexityTests

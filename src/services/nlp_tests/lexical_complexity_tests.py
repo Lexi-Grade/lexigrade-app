@@ -175,11 +175,11 @@ class LexicalComplexityTests:
         ratio = difficult_words / total_words
 
         thresholds = {
-            "A1": 0.02,
-            "A2": 0.05,
-            "B1": 0.10,
-            "B2": 0.20,
-            "C1": 0.30,
+            "A1": 0.03,
+            "A2": 0.08,
+            "B1": 0.15,
+            "B2": 0.25,
+            "C1": 0.35,
             "C2": 1.00
         }
 

@@ -1,2 +1,3 @@
 from api.controllers.llm_generator_controller import generator_controller
 from api.controllers.llm_reviewer_controller import reviewer_controller
+from api.controllers.nlp_tests_controller import nlp_tests_controller
