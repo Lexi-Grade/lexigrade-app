@@ -1,0 +1,1 @@
+from scripts.logger.setup import setup_logger

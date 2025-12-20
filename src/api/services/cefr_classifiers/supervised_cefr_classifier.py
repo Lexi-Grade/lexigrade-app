@@ -6,7 +6,7 @@ import os
 
 LABELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
-class CEFREstimationService:
+class SupervisedCEFREstimationService:
     def __init__(self, language: str):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model_path = os.path.join(settings.cefr_classifier_model_base_path, language)

@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_pydantic import validate
 from api.interfaces import NLPTests
-from services.nlp_tests import LexicalComplexityTests, LexicalRarityTest, SyntacticComplexityTests, evaluate_hard_constraints, evaluate_soft_constraints
+from api.services import LexicalComplexityTests, LexicalRarityTest, SyntacticComplexityTests, evaluate_hard_constraints, evaluate_soft_constraints
 from http import HTTPStatus
 
 nlp_tests_controller = Blueprint('nlp_tests_controller', __name__)
