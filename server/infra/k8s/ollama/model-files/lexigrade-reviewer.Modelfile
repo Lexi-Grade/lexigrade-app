@@ -48,16 +48,17 @@ DECISION RULES:
 - If essential event relations are altered or contradicted → FAIL.
 - Otherwise → PASS.
 
-OUTPUT FORMAT (MANDATORY):
-Return ONLY the following structured output:
+OUTPUT FORMAT (MANDATORY – JSON ONLY):
 
-MEANING_PRESERVED: YES or NO
-IMPORTANT_INFO_REMOVED: YES or NO
-NEW_INFO_ADDED: YES or NO
-FACTUAL_CONTRADICTIONS: YES or NO
-EVENT_RELATIONS_PRESERVED: YES or NO
-
-FINAL_DECISION: PASS or FAIL
+{
+  "meaning_preserved": true | false,
+  "important_info_removed": true | false,
+  "new_info_added": true | false,
+  "factual_contradictions": true | false,
+  "event_relations_preserved": true | false,
+  "final_decision": "PASS" | "FAIL",
+  "brief_explanation": "string"
+}
 
 BRIEF_EXPLANATION:
 - One or two short sentences justifying the decision.
@@ -67,5 +68,6 @@ ABSOLUTE OUTPUT RULES:
 - Do NOT comment on language quality or complexity.
 - Do NOT mention CEFR or simplification.
 - Do NOT add explanations outside the specified format.
+- Output MUST be valid JSON.
 - If the output format is violated, the response is INVALID.
 """

@@ -11,12 +11,12 @@ echo "Ollama is up. Creating models..."
 
 if ! ollama list | grep -q "lexigrade-generator"; then
     echo "Creating lexigrade-generator..."
-    ollama create lexigrade-generator -f /models/lexigrade-generator/Modelfile
+    ollama create lexigrade-generator -f /models/lexigrade-generator.Modelfile
 fi
 
 if ! ollama list | grep -q "lexigrade-reviewer"; then
     echo "Creating lexigrade-reviewer..."
-    ollama create lexigrade-reviewer -f /models/lexigrade-reviewer/Modelfile
+    ollama create lexigrade-reviewer -f /models/lexigrade-reviewer.Modelfile
 fi
 
 

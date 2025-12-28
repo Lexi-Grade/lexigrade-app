@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lexigrade-ollama
+  namespace: lexigrade
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lexigrade-ollama
+  template:
+    metadata:
+      labels:
+        app: lexigrade-ollama
+    spec:
+      runtimeClassName: nvidia
+      containers:
+        - name: ollama
+          image: lexigrade-ollama:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 11434
+          volumeMounts:
+            - name: ollama-data
+              mountPath: /root/.ollama
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+      volumes:
+        - name: ollama-data
+          emptyDir: {}

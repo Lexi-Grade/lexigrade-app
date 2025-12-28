@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lexigrade-api
+  namespace: lexigrade
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lexigrade-api
+  template:
+    metadata:
+      labels:
+        app: lexigrade-api
+    spec:
+      containers:
+        - name: lexigrade-api
+          image: lexigrade-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
