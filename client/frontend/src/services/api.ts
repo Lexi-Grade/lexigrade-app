@@ -1,5 +1,5 @@
 import type { LexiGradeResponse } from './types'
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+const API_BASE = 'http://localhost:30500'
 
 export async function estimateCEFR(text: string, language: string) {
   const res = await fetch(`${API_BASE}/cefr-classifier/estimate`, {
@@ -18,7 +18,7 @@ export async function generateSimplified(
   language: string
 ): Promise<LexiGradeResponse> {
 
-  const res = await fetch(`${API_BASE}/main/execute`, {
+  const res = await fetch(`${API_BASE}/orchestrator/execute`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

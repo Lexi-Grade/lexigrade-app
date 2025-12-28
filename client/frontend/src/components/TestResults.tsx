@@ -26,7 +26,6 @@ export function TestResults({ result }: { result: LexiGradeResponse }) {
         </div>
       </div>
 
-      {/* 🔔 Semantic Alert */}
       {result.semantic_alert && (
         <div className="qc-semantic-alert">
           <span className="qc-alert-icon">⚠</span>
@@ -38,7 +37,6 @@ export function TestResults({ result }: { result: LexiGradeResponse }) {
       )}
 
       <div className="qc-grid">
-        {/* Hard Tests */}
         <div className="qc-card">
           <h4>Hard Tests</h4>
 
@@ -61,7 +59,6 @@ export function TestResults({ result }: { result: LexiGradeResponse }) {
           </ul>
         </div>
 
-        {/* Soft Tests */}
         <div className="qc-card">
           <h4>Soft Tests</h4>
 

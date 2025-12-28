@@ -477,19 +477,24 @@
             flex: 1;
         }
 
+        .text-title {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .text-title h2 {
+          margin: 0;
+        }
+
         .level-badge {
-            position: absolute;
-            top: -40px;
-            right: 20px;
-            background: linear-gradient(135deg, #bd93f9 0%, #ff79c6 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            z-index: 10;
-            animation: bounceIn 0.5s ease-out;
-            box-shadow: 0 4px 12px rgba(189, 147, 249, 0.5);
+          background: linear-gradient(135deg, #bd93f9 0%, #ff79c6 100%);
+          color: white;
+          padding: 0.25rem 0.75rem;
+          border-radius: 999px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          box-shadow: 0 2px 8px rgba(189, 147, 249, 0.45);
         }
 
         @keyframes bounceIn {
@@ -504,6 +509,34 @@
                 transform: scale(1);
                 opacity: 1;
             }
+        }
+
+        .text-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .icon-btn {
+          background: rgba(189, 147, 249, 0.15);
+          border: 1px solid rgba(189, 147, 249, 0.4);
+          color: #fff;
+          font-size: 0.85rem;
+          padding: 0.5rem 0.9rem;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .icon-btn:hover:not(:disabled) {
+          background: rgba(189, 147, 249, 0.4);
+          transform: translateY(-1px);
+        }
+
+        .icon-btn:disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
         }
 
         textarea {
@@ -529,6 +562,21 @@
         textarea:disabled {
             background: rgba(68, 71, 90, 0.3);
             cursor: not-allowed;
+        }
+
+        .char-counter {
+          text-align: right;
+          font-size: 0.7rem;
+          margin-top: 0.25rem;
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        .char-counter.warning {
+          color: #ffb86c;
+        }
+
+        .char-counter.limit {
+          color: #ff5555;
         }
 
         .qc-panel {
